@@ -27,37 +27,35 @@ public class TicketDao {
 
 
 
-	public void buyTicket(final TicketDto dto) {
 		
-		this.template.update(new PreparedStatementCreator(){
-			
-			@Override
-			public PreparedStatement createPreparedStatement(Connection con) throws SQLException{
-				
-				String sql = "insert into card (consumerid,amount) values (?,?)";
-				PreparedStatement pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, dto.getConsumerid());
-				pstmt.setString(2, dto.getAmount());
+		public void buyTicket(final TicketDto dto) {
+		      
+		      this.template.update(new PreparedStatementCreator(){
+		         
+		         @Override
+		         public PreparedStatement createPreparedStatement(Connection con) throws SQLException{
+		            
+		            String sql = "insert into card (consumerid,amount) values (?,?)";
+		            PreparedStatement pstmt = con.prepareStatement(sql);
+		            pstmt.setString(1, dto.getConsumerid());
+		            pstmt.setString(2, dto.getAmount());
 
-				return pstmt;
-			}
-		});
-	}
-		public void update(final TicketDto dto) {
-			
-			this.template.update(new PreparedStatementCreator(){
-				
-				@Override
-				public PreparedStatement createPreparedStatement(Connection con) throws SQLException{
-					
-					String sql = "insert into ticket (consumerid,countnum) values (?,?)";
-					PreparedStatement pstmt = con.prepareStatement(sql);
-					pstmt.setString(1, dto.getConsumerid());
-					pstmt.setString(2, dto.getAmount());
+		            return pstmt;
+		         }
+		      });
+		      
+		      this.template.update(new PreparedStatementCreator(){
+		         
+		         @Override
+		         public PreparedStatement createPreparedStatement(Connection con) throws SQLException{
+		            
+		            String sql = "insert into ticket (consumerid,countnum) values (?,?)";
+		            PreparedStatement pstmt = con.prepareStatement(sql);
+		            pstmt.setString(1, dto.getConsumerid());
+		            pstmt.setString(2, dto.getAmount());
 
-					return pstmt;
-				}
-			});
-
-	}
+		            return pstmt;
+		         }
+		      });
+		   }
 }

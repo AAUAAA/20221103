@@ -27,7 +27,7 @@ public class TicketController {
 		dao.buyTicket(ticketDto);
 		model.addAttribute("ticketInfo", ticketDto);
 		
-		return "buy_ticket_cend";
+		return "buy_ticket_end";
 		
 		
 	}
